@@ -1,0 +1,27 @@
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: test-permissions-workload
+  labels:
+    platform.kadras.io/aggregate-to-workload: "true"
+rules:
+
+  #! Core
+  - apiGroups: [""]
+    resources: ["configmaps"]
+    verbs: ["get", "list", "watch"]
+
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: test-permissions-deliverable
+  labels:
+    platform.kadras.io/aggregate-to-deliverable: "true"
+rules:
+
+  #! Core
+  - apiGroups: [""]
+    resources: ["services"]
+    verbs: ["get", "list", "watch"]
