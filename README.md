@@ -1,4 +1,4 @@
-# RBAC Configuer
+# RBAC Configurer
 
 ![Test Workflow](https://github.com/kadras-io/rbac-configurer/actions/workflows/test.yml/badge.svg)
 ![Release Workflow](https://github.com/kadras-io/rbac-configurer/actions/workflows/release.yml/badge.svg)
@@ -32,7 +32,7 @@ Add the Kadras [package repository](https://github.com/kadras-io/kadras-packages
   ```
 
 <details><summary>Installation without package repository</summary>
-The recommended way of installing the RBAC Configuer package is via the Kadras <a href="https://github.com/kadras-io/kadras-packages">package repository</a>. If you prefer not using the repository, you can add the package definition directly using <a href="https://carvel.dev/kapp/docs/latest/install"><code>kapp</code></a> or <code>kubectl</code>.
+The recommended way of installing the RBAC Configurer package is via the Kadras <a href="https://github.com/kadras-io/kadras-packages">package repository</a>. If you prefer not using the repository, you can add the package definition directly using <a href="https://carvel.dev/kapp/docs/latest/install"><code>kapp</code></a> or <code>kubectl</code>.
 
   ```shell
   kubectl create namespace kadras-packages
@@ -42,7 +42,7 @@ The recommended way of installing the RBAC Configuer package is via the Kadras <
   ```
 </details>
 
-Install the RBAC Configuer package:
+Install the RBAC Configurer package:
 
   ```shell
   kctrl package install -i rbac-configurer \
