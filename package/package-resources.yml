@@ -2,12 +2,12 @@ apiVersion: data.packaging.carvel.dev/v1alpha1
 kind: Package
 metadata:
   creationTimestamp: null
-  name: kadras-rbac.packages.kadras.io.0.0.0
+  name: rbac-configurer.packages.kadras.io.0.0.0
 spec:
   licenses:
   - Apache 2.0
-  refName: kadras-rbac.packages.kadras.io
-  releaseNotes: https://github.com/kadras-io/kadras-rbac/releases
+  refName: rbac-configurer.packages.kadras.io
+  releaseNotes: https://github.com/kadras-io/rbac-configurer/releases
   releasedAt: null
   template:
     spec:
@@ -29,11 +29,11 @@ apiVersion: data.packaging.carvel.dev/v1alpha1
 kind: PackageMetadata
 metadata:
   creationTimestamp: null
-  name: kadras-rbac.packages.kadras.io
+  name: rbac-configurer.packages.kadras.io
 spec:
   categories:
   - rbac
-  displayName: kadras-rbac
+  displayName: rbac-configurer
   longDescription: Default roles and RBAC configuration for the Kadras Engineering
     Platform, supporting users and service accounts.
   maintainers:
@@ -41,7 +41,7 @@ spec:
   providerName: Kadras
   shortDescription: Default roles and RBAC configuration for the Kadras Engineering
     Platform.
-  supportDescription: Go to https://kadras.io for documentation and https://github.com/kadras-io/kadras-rbac
+  supportDescription: Go to https://kadras.io for documentation and https://github.com/kadras-io/rbac-configurer
     for community support.
 
 ---
@@ -51,10 +51,10 @@ metadata:
   annotations:
     kctrl.carvel.dev/local-fetch-0: .
   creationTimestamp: null
-  name: kadras-rbac
+  name: rbac-configurer
 spec:
   packageRef:
-    refName: kadras-rbac.packages.kadras.io
+    refName: rbac-configurer.packages.kadras.io
     versionSelection:
       constraints: 0.0.0
   serviceAccountName: kadras-install-sa

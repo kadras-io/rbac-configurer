@@ -1,7 +1,7 @@
-# Kadras RBAC
+# RBAC Configuer
 
-![Test Workflow](https://github.com/kadras-io/kadras-rbac/actions/workflows/test.yml/badge.svg)
-![Release Workflow](https://github.com/kadras-io/kadras-rbac/actions/workflows/release.yml/badge.svg)
+![Test Workflow](https://github.com/kadras-io/rbac-configurer/actions/workflows/test.yml/badge.svg)
+![Release Workflow](https://github.com/kadras-io/rbac-configurer/actions/workflows/release.yml/badge.svg)
 [![The SLSA Level 3 badge](https://slsa.dev/images/gh-badge-level3.svg)](https://slsa.dev/spec/v1.0/levels)
 [![The Apache 2.0 license badge](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 [![Follow us on Twitter](https://img.shields.io/static/v1?label=Twitter&message=Follow&color=1DA1F2)](https://twitter.com/kadrasIO)
@@ -32,21 +32,21 @@ Add the Kadras [package repository](https://github.com/kadras-io/kadras-packages
   ```
 
 <details><summary>Installation without package repository</summary>
-The recommended way of installing the Kadras RBAC package is via the Kadras <a href="https://github.com/kadras-io/kadras-packages">package repository</a>. If you prefer not using the repository, you can add the package definition directly using <a href="https://carvel.dev/kapp/docs/latest/install"><code>kapp</code></a> or <code>kubectl</code>.
+The recommended way of installing the RBAC Configuer package is via the Kadras <a href="https://github.com/kadras-io/kadras-packages">package repository</a>. If you prefer not using the repository, you can add the package definition directly using <a href="https://carvel.dev/kapp/docs/latest/install"><code>kapp</code></a> or <code>kubectl</code>.
 
   ```shell
   kubectl create namespace kadras-packages
-  kapp deploy -a kadras-rbac-package -n kadras-packages -y \
-    -f https://github.com/kadras-io/kadras-rbac/releases/latest/download/metadata.yml \
-    -f https://github.com/kadras-io/kadras-rbac/releases/latest/download/package.yml
+  kapp deploy -a rbac-configurer-package -n kadras-packages -y \
+    -f https://github.com/kadras-io/rbac-configurer/releases/latest/download/metadata.yml \
+    -f https://github.com/kadras-io/rbac-configurer/releases/latest/download/package.yml
   ```
 </details>
 
-Install the Kadras RBAC package:
+Install the RBAC Configuer package:
 
   ```shell
-  kctrl package install -i kadras-rbac \
-    -p kadras-rbac.packages.kadras.io \
+  kctrl package install -i rbac-configurer \
+    -p rbac-configurer.packages.kadras.io \
     -v ${VERSION} \
     -n kadras-packages
   ```
@@ -55,7 +55,7 @@ Install the Kadras RBAC package:
 > You can find the `${VERSION}` value by retrieving the list of package versions available in the Kadras package repository installed on your cluster.
 > 
 >   ```shell
->   kctrl package available list -p kadras-rbac.packages.kadras.io -n kadras-packages
+>   kctrl package available list -p rbac-configurer.packages.kadras.io -n kadras-packages
 >   ```
 
 Verify the installed packages and their status:

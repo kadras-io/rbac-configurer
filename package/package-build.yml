@@ -2,7 +2,7 @@ apiVersion: kctrl.carvel.dev/v1alpha1
 kind: PackageBuild
 metadata:
   creationTimestamp: null
-  name: kadras-rbac.packages.kadras.io
+  name: rbac-configurer.packages.kadras.io
 spec:
   release:
   - resource: {}
@@ -19,7 +19,7 @@ spec:
           - kbld: {}
       export:
       - imgpkgBundle:
-          image: ghcr.io/kadras-io/kadras-rbac
+          image: ghcr.io/kadras-io/rbac-configurer
           useKbldImagesLock: true
         includePaths:
         - config

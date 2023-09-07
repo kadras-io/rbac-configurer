@@ -1,9 +1,9 @@
 #@ load("@ytt:overlay", "overlay")
 
-#@overlay/match by=overlay.subset({"metadata":{"name":"kadras-rbac"}, "kind":"PackageInstall"})
+#@overlay/match by=overlay.subset({"metadata":{"name":"rbac-configurer"}, "kind":"PackageInstall"})
 ---
 spec:
   #@overlay/match missing_ok=True
   values:
     - secretRef:
-        name: kadras-rbac-values
+        name: rbac-configurer-values

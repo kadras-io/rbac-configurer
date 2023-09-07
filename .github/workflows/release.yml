@@ -13,11 +13,11 @@ jobs:
       packages: write
     uses: kadras-io/github-reusable-workflows/.github/workflows/package-release.yml@main
     with:
-      package-name-slug: kadras-rbac
-      package-name-display: Kadras RBAC
+      package-name-slug: rbac-configurer
+      package-name-display: RBAC Configuer
       registry-server: ghcr.io
       registry-username: ${{ github.actor }}
       image: ${{ github.repository }}
-      version: 0.1.0
+      version: 0.2.0
     secrets:
       pull-request-token: ${{ secrets.GH_ORG_PAT }}
