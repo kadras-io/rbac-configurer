@@ -2,9 +2,9 @@
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
 metadata:
-  name: deliverable
+  name: supply-chain-deliverable
 aggregationRule:
   clusterRoleSelectors:
   - matchLabels:
-      platform.kadras.io/aggregate-to-deliverable: "true"
+      platform.kadras.io/aggregate-to-supply-chain-deliverable: "true"
 rules: []
