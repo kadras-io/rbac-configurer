@@ -2,9 +2,9 @@
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
 metadata:
-  name: workload
+  name: supply-chain-workload
 aggregationRule:
   clusterRoleSelectors:
   - matchLabels:
-      platform.kadras.io/aggregate-to-workload: "true"
+      platform.kadras.io/aggregate-to-supply-chain-workload: "true"
 rules: []

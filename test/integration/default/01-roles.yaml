@@ -2,9 +2,9 @@
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
 metadata:
-  name: test-permissions-workload
+  name: test-supply-chain-workload
   labels:
-    platform.kadras.io/aggregate-to-workload: "true"
+    platform.kadras.io/aggregate-to-supply-chain-workload: "true"
 rules:
 
   #! Core
@@ -16,9 +16,9 @@ rules:
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
 metadata:
-  name: test-permissions-deliverable
+  name: test-supply-chain-deliverable
   labels:
-    platform.kadras.io/aggregate-to-deliverable: "true"
+    platform.kadras.io/aggregate-to-supply-chain-deliverable: "true"
 rules:
 
   #! Core
