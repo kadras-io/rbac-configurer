@@ -1,0 +1,25 @@
+---
+# Each supply chain role aggregates the rules of the ClusterRoles carrying its label, and has none of its own.
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: supply-chain-workload
+  labels:
+    app.kubernetes.io/component: rbac-configurer
+aggregationRule:
+  clusterRoleSelectors:
+    - matchLabels:
+        platform.kadras.io/aggregate-to-supply-chain-workload: "true"
+(length(rules)): 0
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: supply-chain-deliverable
+  labels:
+    app.kubernetes.io/component: rbac-configurer
+aggregationRule:
+  clusterRoleSelectors:
+    - matchLabels:
+        platform.kadras.io/aggregate-to-supply-chain-deliverable: "true"
+(length(rules)): 0

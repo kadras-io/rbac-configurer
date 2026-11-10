@@ -1,0 +1,19 @@
+#@ load("/lib/rbac.star", "aggregation_label", "labels", "supply_chain_roles")
+
+#! The roles of the supply chains. They have no rules of their own: the Kubernetes controller manager
+#! aggregates into each of them the rules of the ClusterRoles carrying its aggregation label.
+
+#@ for role in supply_chain_roles:
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: #@ role
+  labels: #@ labels()
+aggregationRule:
+  clusterRoleSelectors:
+    - matchLabels:
+        #@yaml/text-templated-strings
+        (@= aggregation_label(role) @): "true"
+rules: []
+#@ end

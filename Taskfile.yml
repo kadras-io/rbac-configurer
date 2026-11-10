@@ -64,7 +64,7 @@ tasks:
   schema:
     desc: Use ytt to generate an OpenAPI specification for the package's configuration values
     cmds:
-      - ytt -f package/config/values-schema.yml --data-values-schema-inspect -o openapi-v3 > schema-openapi.yml
+      - ytt -f package/config --data-values-schema-inspect -o openapi-v3 > schema-openapi.yml
 
   # =============================================
   # Testing
@@ -78,8 +78,22 @@ tasks:
 
   test:config:
     desc: Check the ytt-annotated Kubernetes configuration and its validation
+    silent: true
     cmds:
-      - ytt -f package/config | kubeconform -ignore-missing-schemas -summary
+      # Each scenario renders the package with its values, validates the result against the Kubernetes schemas,
+      # and checks it against the Chainsaw assertions in assert.yaml (must match) and errors.yaml (must not match).
+      - |
+        set -eo pipefail
+        rendered=$(mktemp)
+        schemas=$(mktemp -d)
+        trap 'rm -rf "$rendered" "$schemas"' EXIT
+        for values in test/unit/*/values.yml; do
+          scenario=$(dirname "$values")
+          echo "🧪 Scenario: $(basename "$scenario")"
+          ytt -f package/config --data-values-file "$values" > "$rendered"
+          kubeconform -ignore-missing-schemas -summary -cache "$schemas" < "$rendered"
+          hack/assert-render.sh "$rendered" "$scenario"
+        done
 
   test:integration:
     desc: Run package integration tests

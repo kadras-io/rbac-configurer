@@ -1,0 +1,7 @@
+---
+# The roles are only defined here: they're bound in each workspace by the Workspace Provisioner package.
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
